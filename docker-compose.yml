@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  crawler:
+    build: crawler/.
+    environment:
+      - PRINT=1
+      - MONGO_URI="mongodb://mongo:27017/"
+      - JSON_PATH=""
