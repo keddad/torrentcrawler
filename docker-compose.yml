@@ -4,5 +4,15 @@ services:
     build: crawler/.
     environment:
       - PRINT=1
-      - MONGO_URI="mongodb://mongo:27017/"
-      - JSON_PATH=""
+      - MONGO_URI=mongodb://mongo:27017/
+      - JSON_PATH=
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

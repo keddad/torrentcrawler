@@ -49,9 +49,9 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'torrentcrawler.middlewares.TorrentcrawlerDownloaderMiddleware': 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    'torrentcrawler.middlewares.TorrentcrawlerDownloaderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -62,8 +62,10 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'torrentcrawler.pipelines.TorrentcrawlerPipeline': 300,
-    'torrentcrawler.pipelines.TorrentJsonWriter': 400
+    'torrentcrawler.pipelines.RegNormalizerPipeline': 100,
+    'torrentcrawler.pipelines.TorrentcrawlerPrintPipeline': 300,
+    'torrentcrawler.pipelines.TorrentJsonWriter': 400,
+    'torrentcrawler.pipelines.MongoLoaderPipeline': 401
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

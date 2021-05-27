@@ -17,7 +17,7 @@ class RutrackerSpider(scrapy.spiders.CrawlSpider):
     rutracker_login = "notkeddad_bot"
     rutracker_password = "5MY9TB2YWjDswQ"
 
-    bad_pages_regexp = r"http:\/\/rutracker\.org\/forum\/(profile\.php|login\.php|privmsg\.php|groupcp\.php|info\.php|dl\.php)"
+    bad_pages_regexp = r"http:\/\/rutracker\.org\/forum\/(login\.php|privmsg\.php|groupcp\.php|info\.php|dl\.php)"
 
     rules = [
         scrapy.spiders.Rule(scrapy.linkextractors.lxmlhtml.LxmlLinkExtractor(deny=bad_pages_regexp), callback="parse_data", follow=True)
@@ -42,7 +42,7 @@ class RutrackerSpider(scrapy.spiders.CrawlSpider):
         magnet = response.css("a.magnet-link::attr(title)").extract_first()
 
         if magnet is not None:
-            yield TorrentObject(name=response.css("a#topic-title::text").get(),
+            yield TorrentObject(name=response.xpath("//a[@id='topic-title']/descendant-or-self::*/text()").get(), # TODO
                                 size=int(response.css("span#tor-size-humn::attr(title)").extract_first()),
                                 reg=response.xpath("//a[contains(@class, 'p-link small')]/text()").get(),
                                 hash=magnet,

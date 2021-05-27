@@ -81,13 +81,7 @@ class TorrentcrawlerDownloaderMiddleware:
         return None
 
     def process_response(self, request, response, spider):
-        # Called with the response returned from the downloader.
-
-        # Must either;
-        # - return a Response object
-        # - return a Request object
-        # - or raise IgnoreRequest
-        return response
+        return response.replace(body=response.body.replace(b'<wbr>', b''))
 
     def process_exception(self, request, exception, spider):
         # Called when a download handler or a process_request()
