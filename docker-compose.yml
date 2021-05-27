@@ -2,6 +2,7 @@ version: "3.8"
 services:
   crawler:
     build: crawler/.
+    restart: always
     environment:
       - PRINT=1
       - MONGO_URI=mongodb://mongo:27017/
@@ -9,6 +10,7 @@ services:
 
   mongo:
     image: mongo:latest
+    restart: always
     ports:
       - 27017:27017
     volumes:
