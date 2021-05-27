@@ -13,3 +13,4 @@ class TorrentObject(scrapy.Item):
     hash = scrapy.Field()
     seeders = scrapy.Field()
     leechers = scrapy.Field()
+    url = scrapy.Field()

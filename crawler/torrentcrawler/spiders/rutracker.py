@@ -42,10 +42,11 @@ class RutrackerSpider(scrapy.spiders.CrawlSpider):
         magnet = response.css("a.magnet-link::attr(title)").extract_first()
 
         if magnet is not None:
-            yield TorrentObject(name=response.xpath("//a[@id='topic-title']/descendant-or-self::*/text()").get(), # TODO
+            yield TorrentObject(name=response.xpath("//a[@id='topic-title']/descendant-or-self::*/text()").get(),
                                 size=int(response.css("span#tor-size-humn::attr(title)").extract_first()),
                                 reg=response.xpath("//a[contains(@class, 'p-link small')]/text()").get(),
                                 hash=magnet,
                                 seeders=int(response.css("span.seed > b::text").get() or "0"),
-                                leechers=int(response.css("span.leech > b::text").get() or "0"))
+                                leechers=int(response.css("span.leech > b::text").get() or "0"),
+                                url=response.url)
 
