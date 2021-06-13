@@ -12,5 +12,5 @@ class TorrentObject(scrapy.Item):
     reg = scrapy.Field()
     hash = scrapy.Field()
     seeders = scrapy.Field()
-    leechers = scrapy.Field()
+    leeches = scrapy.Field()
     url = scrapy.Field()

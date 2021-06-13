@@ -50,7 +50,8 @@ ROBOTSTXT_OBEY = False
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'torrentcrawler.middlewares.TorrentcrawlerDownloaderMiddleware': 543,
+    'torrentcrawler.middlewares.ForceUTF8Response': 100,
+    'torrentcrawler.middlewares.TorrentcrawlerDownloaderMiddleware': 543
 }
 
 # Enable or disable extensions

@@ -7,7 +7,7 @@ class Entity(BaseModel):
     reg: int  # UNIX Timestamp
     hash: str
     seeders: int
-    leechers: int
+    leeches: int
     url: str
     last_updated: int  # UNIX Timestamp, last time parser found element
 

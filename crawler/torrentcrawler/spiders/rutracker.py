@@ -47,6 +47,6 @@ class RutrackerSpider(scrapy.spiders.CrawlSpider):
                                 reg=response.xpath("//a[contains(@class, 'p-link small')]/text()").get(),
                                 hash=magnet,
                                 seeders=int(response.css("span.seed > b::text").get() or "0"),
-                                leechers=int(response.css("span.leech > b::text").get() or "0"),
+                                leeches=int(response.css("span.leech > b::text").get() or "0"),
                                 url=response.url)
 

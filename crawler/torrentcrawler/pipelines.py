@@ -90,7 +90,7 @@ class MongoLoaderPipeline:
                                            "$set": {
                                                "last_updated": datetime.now().strftime('%s'),
                                                "seeders": data["seeders"],
-                                               "leechers": data["leechers"]},
+                                               "leeches": data["leeches"]},
                                            "$min": {"reg": data["reg"]}})
 
         return item
