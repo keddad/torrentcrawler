@@ -33,7 +33,7 @@ jobs:
         with:
           context: ./api
           push: true
-          tags: keddad/torrentcrawler:latest
+          tags: keddad/torrentcrawler
 
       - name: Build & Publish Api
         uses: docker/build-push-action@v2
