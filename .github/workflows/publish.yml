@@ -34,7 +34,7 @@ jobs:
       - name: Build & Publish images
         uses: docker/build-push-action@v2
         with:
-          context: ghcr.io
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
