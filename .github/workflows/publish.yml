@@ -33,7 +33,7 @@ jobs:
         with:
           context: ./api
           push: true
-          tags: keddad/torrentcrawler_crawler
+          tags: keddad/torrentcrawler
           labels: latest
 
       - name: Build & Publish Api
